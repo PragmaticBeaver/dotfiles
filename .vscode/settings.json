@@ -1,12 +1,26 @@
 {
-  "editor.formatOnSave": true,
   "files.autoSave": "onWindowChange",
+  "editor.tabSize": 2,
+  "git.ignoreLimitWarning": true,
+  "eslint.runtime": "node",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.fixAll.stylelint": "explicit"
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "git.ignoreLimitWarning": true,
-  "editor.tabSize": 2,
-  "eslint.runtime": "node"
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  }
 }
