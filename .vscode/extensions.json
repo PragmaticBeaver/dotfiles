@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "tamasfe.even-better-toml",
+    "DavidAnson.vscode-markdownlint",
+    "redhat.vscode-yaml",
+    "oderwat.indent-rainbow",
+    "mikestead.dotenv"
+  ]
+}
