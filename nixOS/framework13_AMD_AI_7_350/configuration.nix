@@ -11,7 +11,8 @@
       # fetch framework 13" AMD AI 300 - configuration.
       "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/framework/13-inch/amd-ai-300-series"
       # custom config for hibernation after a certain time (30 minutes)
-      ./suspend-and-hibernate.nix
+      # non functional :(
+      # ./suspend-and-hibernate.nix
     ];
 
   # Bootloader.
@@ -72,6 +73,33 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.drivers = [
+    pkgs.hplip # — Drivers for HP printers.
+    pkgs.hplipWithPlugin # — Drivers for HP printers, with the proprietary plugin. Use NIXPKGS_ALLOW_UNFREE=1 nix-shell -p hplipWithPlugin --run 'sudo -E hp-setup' to add the printer, regular CUPS UI doesn't seem to work.
+  ];
+  services.printing = {
+    listenAddresses = [ "*:631" ];
+    allowFrom = [ "all" ];
+    browsing = true;
+    defaultShared = true;
+    browsedConf = ''
+    BrowseDNSSDSubTypes _cups,_print
+    BrowseLocalProtocols all
+    BrowseRemoteProtocols all
+    CreateIPPPrinterQueues All
+    BrowseProtocols all
+    '';
+  };
+  # Enable printer autodiscovery
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+    publish = {
+      enable = true;
+      userServices = true;
+    };
+  };
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -113,7 +141,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    # orca-slicer # bugged
+    orca-slicer # bugged
     aseprite
     bitwarden-desktop
     brave
@@ -129,6 +157,13 @@
     vscode
     wget
   ];
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -147,6 +182,9 @@
 
   # Enable KDE Wallet (wallet for secrets, PWs, and so on)
   security.pam.services.sddm.enableKwallet = true;
+
+  # Enable experimental feature "flakes"
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
