@@ -141,7 +141,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    orca-slicer # bugged
+    # orca-slicer # bugged
     aseprite
     bitwarden-desktop
     brave
@@ -156,6 +156,8 @@
     thunderbird
     vscode
     wget
+    wineWowPackages.stable # support both 32-bit and 64-bit applications
+    winetricks
   ];
 
   programs.steam = {
