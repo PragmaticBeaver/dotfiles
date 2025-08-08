@@ -136,12 +136,13 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "libsoup-2.74.3"
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    # orca-slicer # bugged
     aseprite
     bitwarden-desktop
     brave
@@ -152,12 +153,13 @@
     godot3
     nodejs_24
     obsidian
+    orca-slicer # bugged
     signal-desktop
     thunderbird
     vscode
     wget
-    wineWowPackages.stable # support both 32-bit and 64-bit applications
     winetricks
+    wineWowPackages.stable # support both 32-bit and 64-bit applications
   ];
 
   programs.steam = {
