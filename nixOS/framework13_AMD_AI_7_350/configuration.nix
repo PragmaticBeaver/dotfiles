@@ -157,9 +157,10 @@
     signal-desktop
     thunderbird
     vscode
-    wget
+    wget 
     winetricks
     wineWowPackages.stable # support both 32-bit and 64-bit applications
+    # ./../pkgs/defold/default.nix # defold game engine
   ];
 
   programs.steam = {
