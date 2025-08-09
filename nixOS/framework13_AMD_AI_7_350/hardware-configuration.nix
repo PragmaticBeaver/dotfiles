@@ -24,7 +24,19 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  swapDevices = [ ];
+  nix.settings = {
+      cores = 6;
+      max-jobs = 2; # uses 12 CPU cores total (6 for each job)
+  };
+
+  swapDevices = [{
+    device = "/swapfile";
+    size = 32 * 1024;
+  }];
+
+  # zram is a Linux kernel feature that creates compressed RAM-based block devices. 
+  # Essentially, it allows you to use a portion of your RAM as a swap space with on-the-fly compression. 
+  zramSwap.enable = true;
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
