@@ -31,7 +31,7 @@
 
   swapDevices = [{
     device = "/swapfile";
-    size = 32 * 1024;
+    size = 48 * 1024; # 32 GB RAM + 50% extra
   }];
 
   # zram is a Linux kernel feature that creates compressed RAM-based block devices. 

@@ -150,7 +150,7 @@
     git
     github-desktop
     godot
-    godot3
+    # godot3
     nodejs_24
     obsidian
     orca-slicer # bugged
@@ -158,9 +158,9 @@
     thunderbird
     vscode
     wget
-    winetricks
-    wineWowPackages.stable # support both 32-bit and 64-bit applications
-    mission-center
+    # winetricks
+    # wineWowPackages.stable # support both 32-bit and 64-bit applications
+    # mission-center
   ];
 
   programs.steam = {
