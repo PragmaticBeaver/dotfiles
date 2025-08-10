@@ -11,8 +11,7 @@
       # fetch framework 13" AMD AI 300 - configuration.
       "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/framework/13-inch/amd-ai-300-series"
       # custom config for hibernation after a certain time (30 minutes)
-      # non functional :(
-      # ./suspend-and-hibernate.nix
+      ./suspend-and-hibernate.nix
     ];
 
   # Bootloader.
