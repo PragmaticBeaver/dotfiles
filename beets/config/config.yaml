@@ -57,7 +57,7 @@ replace:
     '[\xF2-\xF6]': o
     '[\xF8]': o
     '\.$': _
-    '\s+$': ''
+    '\s+$': ""
 
 web:
     host: 0.0.0.0
@@ -69,25 +69,40 @@ smartplaylist:
     forward_slash: no
     playlists:
         - name: all.m3u
-          query: ''
-        - name: 'Power-Metal.m3u'
-          query: [
-            'artist:Disturbed',
-            'artist:Hammerfall',
-            'artist:Gloryhammer',
-            'artist:Battle Beast',
-            'artist:Beast in Black']
-        - name: 'Eminem.m3u'
-          query: [
-            'artist:Eminem',
-            'artist:Bad meets Evil',
-            'artist:D12']
-        - name: 'Daddyphatsnaps.m3u'
-          query: 'artist:Daddyphatsnaps'
-        - name: 'Divide-Music.m3u'
-          query: 'artist:divide music'
-        - name: 'HMV.m3u'
-          query: [
-            'title:"my head & my heart"',
-            'title:my head and my heart',
-            'title:telephone']
+          query: ""
+        - name: "Power-Metal.m3u"
+          query:
+              [
+                  "artist:Disturbed",
+                  "artist:Hammerfall",
+                  "artist:Gloryhammer",
+                  "artist:Battle Beast",
+                  "artist:Beast in Black",
+              ]
+        - name: "Eminem.m3u"
+          query: ["artist:Eminem", "artist:Bad meets Evil", "artist:D12"]
+        - name: "Daddyphatsnaps.m3u"
+          query: "artist:Daddyphatsnaps"
+        - name: "Divide-Music.m3u"
+          query: "artist:divide music"
+        - name: "HMV.m3u"
+          query:
+              [
+                  'title:"my head & my heart"',
+                  "title:my head and my heart",
+                  "title:telephone",
+              ]
+        - name: "Genre-Pop.m3u"
+          query: "genre:Pop"
+        - name: "Genre-Rock.m3u"
+          query: "genre:Rock"
+        - name: "Genre-Metal.m3u"
+          query: "genre:Metal"
+        - name: "Genre-KPop.m3u"
+          query: "genre:K-Pop"
+        - name: "Genre-Electronic.m3u"
+          query: "genre:Electro"
+        - name: "Genre-Hip-Hop.m3u"
+          query: "genre:Hip Hop"
+        - name: "Genre-Rap.m3u"
+          query: "genre:Rap"
