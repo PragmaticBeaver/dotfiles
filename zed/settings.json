@@ -17,6 +17,12 @@
     "dock": "left"
   },
   "agent": {
+    "default_model": {
+      "provider": "openai-subscribed",
+      "model": "gpt-6-astra",
+      "enable_thinking": true,
+      "effort": "low"
+    },
     "dock": "right",
     "favorite_models": [],
     "model_parameters": []
